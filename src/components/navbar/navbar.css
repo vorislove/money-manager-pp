@@ -1,0 +1,51 @@
+.navBar {
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    z-index: 1050;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(80px);
+}
+
+.active {
+    font-weight: bold;
+}
+
+.navbar_btn {
+    width: 50px;
+    height: 90%;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 3px 15px;
+    background-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar_btn i {
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    font-size: 2.5em;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
