@@ -6,13 +6,13 @@ class NavBarBtn extends Component {
         super(props);
     }
 
-    render() {
+    render() { 
         const {name, icon} = this.props;
 
         return(
-            <div type="button"
+            <div
                 className='navbar_btn flex-column'>
-                <i class={icon}></i>
+                <i className={icon}></i>
                 <span>{name}</span>
             </div>
         );
