@@ -4,14 +4,15 @@ import PageName from '../pages-name/pages-name';
 import './categories-card/categorie-card.css';
 
 
-const CategorieCardArea = ({data, onAdd, openModal}) => {
+const CategorieCardArea = ({data, onAdd, openModal, rename}) => {
 
     const elements = data.map(item => {
         const {id, ...itemProps} = item;
         return(
             <CategorieCard key={id} 
                 {...itemProps}
-                onOpenModal={() => openModal(id)} />
+                onOpenModal={() => openModal(id)}
+                rename={() => rename(id)} />
         )
     })
 

@@ -11,8 +11,8 @@ class NavBarBtn extends Component {
 
         return(
             <div
-                className='navbar_btn flex-column'>
-                <i className={icon}></i>
+                className='navbar_btn'>
+                <i className={`icon ${icon}`}></i>
                 <span>{name}</span>
             </div>
         );

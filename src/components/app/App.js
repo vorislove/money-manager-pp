@@ -47,9 +47,20 @@ class App extends Component {
   openModal = (id) => {
     this.setState(({data}) => {
       const index = data.findIndex(elem => elem.id == id);
-      console.log(index);
+      console.log('Open ',index);
     })
   }
+
+  // rename = (id) => {
+  //   const newItem = {
+  //     name, 
+    // }
+  //   this.setState(({data}) => {
+  //     const index = data.findIndex(elem => elem.id == id);
+
+  //     console.log('Change ',index);
+  //   })
+  // }
 
   
   render() {
@@ -59,7 +70,9 @@ class App extends Component {
       <div className="App">
         <CategorieCardArea data={data} 
           onAdd={this.addItem}
-          openModal={this.openModal}/>
+          openModal={this.openModal}
+          // rename={this.rename}
+          incementing={this.incementing} />
         <NavBar/>
       </div>
     );

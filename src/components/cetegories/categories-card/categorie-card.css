@@ -19,18 +19,41 @@
 }
 
 .categorie_card {
+    display: flex;
+    flex-grow: 2;
+    box-shadow: 2px 4px 12px rgb(0, 0, 0, 0.08);
+    margin: 0 30px 30px 0;
+    border-radius: 25px;
+    transition: all .3s cubic-bezier(0,0,.5,1);
     width: 150px;
     height: 96px;
-    flex-grow: 2;
-    max-width: 400px;
     background: linear-gradient(301.13deg, #9EF956 -1.1%, #F5FF84 105.29%);
-    box-shadow: 2px 4px 12px rgb(0, 0, 0, 0.08);
-    border-radius: 25px;
+    max-width: 400px;
+}
+
+@media (max-width:392px) {
+    .categorie_card {
+        margin: 0 15px 15px 0;
+        min-width: 150px;
+    }
+
+    .categorie_card_area {
+    padding-left: 15px;
+    margin: 80px auto 0 auto;
+    }
+}
+
+@media (min-width:767px) {
+    .categorie_card_area {
+        margin-left: 230px;
+    }
+}
+
+.categorie_card_info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 30px 30px 0;
-    transition: all .3s cubic-bezier(0,0,.5,1);
+    width: 100%;
 }
 
 .categorie_card:hover {

@@ -9,28 +9,41 @@
 .modal {
     overflow: hidden;
     z-index: 2000;
-    /* position: fixed; */
+    position: fixed;
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
-    /* display: flex; */
     flex-direction: column;
-    /* align-content: center; */
     justify-content: center;
+    /* transition: all .3s cubic-bezier(0,0,.5,1); */
 }
 
 .modalContent {
     width: 90%;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: saturate(180%) blur(40px);
-    height: 50%;
-    overflow: auto;
+    height: 320px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     box-shadow: 0 -25px 40px rgba(0, 0, 0, 0.192);
     z-index: 2010;
     margin: 0 auto;
+    transition: 0.3s all;
+    transform: translateY(-200%);
+    opacity: 0;
+}
+
+.modalContent.openContent {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+@media (min-width:600px) {
+    .modalContent {
+        width: 500px;
+    }
 }
 
 .inputNewCtg {
@@ -61,18 +74,17 @@ input:focus {
 }
 
 .modalContent button {
-    width: 166px;
+    width: 90%;
     height: 40px;
     background: #47EA6B;
-    border-radius: 20px;
+    border-radius: 18px;
     border: none;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
-    line-height: 42px;
     color: #FFFFFF;
-    margin: 60px auto 20px auto;
+    margin: 50px auto 20px auto;
     align-items: center;
 }
 
@@ -93,7 +105,9 @@ input:focus {
     font-size: 20px;
     line-height: 20px;
     font-weight: 500;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: saturate(180%) blur(80px);
+    padding: 5px 5px 5px 20px;
+    border-radius: 18px;
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.418); */
 }
