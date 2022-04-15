@@ -30,7 +30,7 @@ class CategorieCard extends Component {
     }
 
     render() {
-        const {name, sum, img, rename} = this.props;
+        const {name, sum, img, rename, idCard, changeSum} = this.props;
         const {visible} = this.state;
         let classNameModal = `modal ${visible ? 'open' : 'close'}`;
         
@@ -51,7 +51,9 @@ class CategorieCard extends Component {
                     <Modal name={name}
                         sum={sum}
                         visible={visible}
-                        rename={() => rename()}
+                        idCard={idCard}
+                        rename={rename}
+                        changeSum={changeSum}
                     />
                 </div>
             </div>

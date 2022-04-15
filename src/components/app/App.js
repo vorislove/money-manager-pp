@@ -1,8 +1,7 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 
 import NavBar from '../navbar/navbar';
 import CategorieCardArea from '../cetegories/categorie-card-area';
-import Modal from '../modal/modal';
 
 import './App.css';
 
@@ -16,13 +15,10 @@ class App extends Component {
         {name: 'Здоровье', img: 'bi bi-heart-pulse-fill', sum: 3340, id: 2},
         {name: 'Транспорт', img: 'bi bi-basket2-fill', sum: 1150, id: 3},
         {name: 'Жилье', img: 'bi bi-basket2-fill', sum: 3000, id: 4},
-        {name: 'Жилье', img: 'bi bi-basket2-fill', sum: 3000, id: 5},
-        {name: 'Жилье', img: 'bi bi-basket2-fill', sum: 3000, id: 6},
-        {name: 'Жилье', img: 'bi bi-basket2-fill', sum: 3000, id: 7},
-        {name: 'Продукты', img: 'bi bi-basket2-fill', sum: 5000, id: 8}
+        {name: 'Развлечения', img: 'bi bi-basket2-fill', sum: 3000, id: 5},
       ]
     }
-    this.maxId = 9;
+    this.maxId = 6;
   }
 
   addItem = () => {
@@ -46,21 +42,36 @@ class App extends Component {
 
   openModal = (id) => {
     this.setState(({data}) => {
-      const index = data.findIndex(elem => elem.id == id);
-      console.log('Open ',index);
+      const index = data.find(elem => elem.id === id);
+      console.log('Open  ',index);
     })
   }
 
-  // rename = (id) => {
-  //   const newItem = {
-  //     name, 
-    // }
-  //   this.setState(({data}) => {
-  //     const index = data.findIndex(elem => elem.id == id);
+  rename = (id, name) => {
+    console.log('на вход ', id, ' ', name);
 
-  //     console.log('Change ',index);
-  //   })
-  // }
+    this.setState(({data}) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+            console.log('изменен  ', item);
+            return {...item, name: name}
+        };
+        return item;
+      })
+    }))
+  }
+
+  changeSum = (id, sum) => {
+    this.setState(({data}) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+            console.log('изменен  ', item);
+            return {...item, sum: sum}
+        };
+        return item;
+      })
+    }))
+  }
 
   
   render() {
@@ -71,7 +82,8 @@ class App extends Component {
         <CategorieCardArea data={data} 
           onAdd={this.addItem}
           openModal={this.openModal}
-          // rename={this.rename}
+          rename={this.rename}
+          changeSum={this.changeSum}
           incementing={this.incementing} />
         <NavBar/>
       </div>
