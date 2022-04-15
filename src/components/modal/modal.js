@@ -27,7 +27,7 @@ class Modal extends Component  {
     }
     
     onChangeName = () => {
-        this.props.rename(this.state.id, this.state.nameInput);
+        this.props.changeNameAndSum(this.state.id, this.state.nameInput, 'name');
     }
 
     onChangeSumValue = (e) => {
@@ -39,7 +39,7 @@ class Modal extends Component  {
     onSubmit = (e) => {
         e.preventDefault();
         const sumDone = parseInt(this.state.sum, 10) + parseInt(this.state.sumInput, 10);
-        this.props.changeSum(this.state.id, sumDone);
+        this.props.changeNameAndSum(this.state.id, sumDone, 'sum');
         this.setState({
             sumInput: ''
         })

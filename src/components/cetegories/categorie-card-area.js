@@ -4,7 +4,7 @@ import PageName from '../pages-name/pages-name';
 import './categories-card/categorie-card.css';
 
 
-const CategorieCardArea = ({data, onAdd, openModal, rename, changeSum}) => {
+const CategorieCardArea = ({data, onAdd, openModal, changeNameAndSum}) => {
 
     const elements = data.map(item => {
         const {id, name, sum, ...itemProps} = item;
@@ -15,8 +15,7 @@ const CategorieCardArea = ({data, onAdd, openModal, rename, changeSum}) => {
                 idCard={id}
                 name={name}
                 onOpenModal={() => openModal(id)}
-                rename={rename}
-                changeSum={changeSum} />
+                changeNameAndSum={changeNameAndSum} />
         )
     })
 

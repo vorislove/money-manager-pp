@@ -47,32 +47,18 @@ class App extends Component {
     })
   }
 
-  rename = (id, name) => {
-    console.log('на вход ', id, ' ', name);
+  changeNameAndSum = (id, value, name) => {
+    console.log('на вход ', id, ' ', value);
 
     this.setState(({data}) => ({
       data: data.map(item => {
         if (item.id === id) {
-            console.log('изменен  ', item);
-            return {...item, name: name}
+            return {...item, [name]: value}
         };
         return item;
       })
     }))
   }
-
-  changeSum = (id, sum) => {
-    this.setState(({data}) => ({
-      data: data.map(item => {
-        if (item.id === id) {
-            console.log('изменен  ', item);
-            return {...item, sum: sum}
-        };
-        return item;
-      })
-    }))
-  }
-
   
   render() {
     const {data} = this.state;
@@ -82,9 +68,7 @@ class App extends Component {
         <CategorieCardArea data={data} 
           onAdd={this.addItem}
           openModal={this.openModal}
-          rename={this.rename}
-          changeSum={this.changeSum}
-          incementing={this.incementing} />
+          changeNameAndSum={this.changeNameAndSum}/>
         <NavBar/>
       </div>
     );
