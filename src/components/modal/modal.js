@@ -38,15 +38,21 @@ class Modal extends Component  {
 
     onSubmit = (e) => {
         e.preventDefault();
-        const sumDone = parseInt(this.state.sum, 10) + parseInt(this.state.sumInput, 10);
-        this.props.changeNameAndSum(this.state.id, sumDone, 'sum');
-        this.setState({
-            sumInput: ''
-        })
+        if (this.state.sumInput == '' || this.state.sumInput == 0) {
+            alert('Введите значение')
+        } else {
+            const sumDone = parseInt(this.state.sum, 10) + parseInt(this.state.sumInput, 10);
+            this.props.changeNameAndSum(this.state.id, sumDone, 'sum');
+            this.setState({
+                sumInput: ''
+            })
+            
+        }
+        
     }
 
     render() {
-        const {visible, sum} = this.props;
+        const {visible, sum, deleteCard, onClosed} = this.props;
         const {nameInput, sumInput} = this.state;
         
         let className = `modalContent ${visible ? 'openContent' : ''}`;
@@ -56,24 +62,36 @@ class Modal extends Component  {
             <form action="#"  
                 className={className}
                 onSubmit={this.onSubmit} >
-                <input 
-                    type="text"
-                    name="nameCard"     
-                    placeholder="Новая категория" 
-                    className="inputNewCtg"
-                    value={nameInput}
-                    onChange={this.onValueChange}
-                    onBlur={this.onChangeName} />
+                <div className="row">
+                    <input 
+                        type="text"
+                        name="nameCard"     
+                        placeholder="Новая категория" 
+                        className="inputNewCtg"
+                        value={nameInput}
+                        onChange={this.onValueChange}
+                        onBlur={this.onChangeName} />
+                    <span 
+                        className='closed'
+                        onClick={onClosed}>
+                        Закрыть
+                    </span>
+                </div>
                 <span className="maneyCounterLog">
                     {sum}
-                    </span>
-                <input 
+                </span>
+                <div>
+                    <input 
                     type="number" 
                     name="MoneyCount" 
                     value={sumInput}  
                     onChange={this.onChangeSumValue}
                     className="maneyCounterInput"   
                     placeholder="Укажите сумму"/>
+                    <i class="iconTrash bi bi-trash3-fill"
+                        onClick={deleteCard}></i>
+                </div>
+                
                 <button 
                     className="plusSum">
                     Добавить

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import NavBar from '../navbar/navbar';
-import CategorieCardArea from '../cetegories/categorie-card-area';
+import CategorieTab from '../cetegories/categorie-tab';
 
 import './App.css';
 
@@ -22,22 +22,23 @@ class App extends Component {
   }
 
   addItem = () => {
-    const newItem = {
-      name: 'Новая категория',
-      img: 'bi bi-basket2-fill',
-      sum: 0,
-      id: this.maxId++
-    }
+    if (this.maxId <= 12) {
+      const newItem = {
+        name: 'Новая категория',
+        img: 'bi bi-basket2-fill',
+        sum: 0,
+        id: this.maxId++
+      }
 
-    this.setState(({data}) => {
-      if (this.maxId <= 13) {
+      this.setState(({data}) => {
         const newArr = [...data, newItem];
 
         return {
           data: newArr
         }
-      }
-    })
+      })
+      console.log(this.maxId)
+    }
   }
 
   openModal = (id) => {
@@ -59,15 +60,27 @@ class App extends Component {
       })
     }))
   }
+
+  deleteCard = (id) => {
+    this.setState(({data}) => {
+      return {
+          data: data.filter(item => item.id !== id)
+      }
+    })
+    --this.maxId
+    console.log(this.maxId)
+  }
+  
   
   render() {
     const {data} = this.state;
 
     return (
       <div className="App">
-        <CategorieCardArea data={data} 
+        <CategorieTab data={data} 
           onAdd={this.addItem}
           openModal={this.openModal}
+          deleteCard={this.deleteCard}
           changeNameAndSum={this.changeNameAndSum}/>
         <NavBar/>
       </div>

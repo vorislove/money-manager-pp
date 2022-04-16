@@ -20,8 +20,9 @@ class CategorieCard extends Component {
         })
     }
 
+
     onClosed = (e) => {
-        if (e.target.classList.contains('open')) {
+        if (e.target.classList.contains('open') || e.target.classList.contains('closed')) {
             this.setState({
                 visible: false
             });
@@ -30,7 +31,7 @@ class CategorieCard extends Component {
     }
 
     render() {
-        const {name, sum, img, changeNameAndSum, idCard} = this.props;
+        const {name, sum, img, changeNameAndSum, idCard, deleteCard} = this.props;
         const {visible} = this.state;
         let classNameModal = `modal ${visible ? 'open' : 'close'}`;
         
@@ -52,6 +53,8 @@ class CategorieCard extends Component {
                         sum={sum}
                         visible={visible}
                         idCard={idCard}
+                        deleteCard={deleteCard}
+                        onClosed={this.onClosed}
                         changeNameAndSum={changeNameAndSum}
                     />
                 </div>

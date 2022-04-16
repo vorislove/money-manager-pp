@@ -46,17 +46,47 @@
     }
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.closed {
+    color: rgb(2, 2, 2);
+    height: 20px;
+    max-width: 50px;
+    margin-top: 25px;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+.closed:hover {
+    cursor: pointer;
+}
+.iconTrash:hover {
+    cursor: pointer;
+}
+
+.iconTrash {
+    color:rgb(224, 76, 76);
+    height: 35px;
+    padding-top: 35px;
+    font-size: 30px;
+    margin-left: 50px;
+}
+
 .inputNewCtg {
     margin-top: 25px;
     margin-bottom: 20px;
-    width: 85%;
+    width: 70%;
     background-color: rgba(255, 255, 255, 0)
 }
 
 input {
     border-radius: 5px;
     height: 35px;
-    width: 200px;
+    /* width: 200px; */
     border: none;
     flex-wrap: wrap;
     font-family: Roboto;
@@ -109,5 +139,6 @@ input:focus {
     backdrop-filter: saturate(180%) blur(80px);
     padding: 5px 5px 5px 20px;
     border-radius: 18px;
+    max-width: 200px;
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.418); */
 }

@@ -4,7 +4,7 @@ import PageName from '../pages-name/pages-name';
 import './categories-card/categorie-card.css';
 
 
-const CategorieCardArea = ({data, onAdd, openModal, changeNameAndSum}) => {
+const CategorieTab = ({data, onAdd, openModal, changeNameAndSum, deleteCard}) => {
 
     const elements = data.map(item => {
         const {id, name, sum, ...itemProps} = item;
@@ -14,6 +14,7 @@ const CategorieCardArea = ({data, onAdd, openModal, changeNameAndSum}) => {
                 sum={sum}
                 idCard={id}
                 name={name}
+                deleteCard={() => deleteCard(id)}
                 onOpenModal={() => openModal(id)}
                 changeNameAndSum={changeNameAndSum} />
         )
@@ -23,7 +24,7 @@ const CategorieCardArea = ({data, onAdd, openModal, changeNameAndSum}) => {
         <div className='tab'>
             <PageName name='Категории'
             onAdd={() => onAdd()} />
-            <div className="categorie_card_area">
+            <div className="categorie_tab_area">
                 {elements}
             </div>
             
@@ -31,4 +32,4 @@ const CategorieCardArea = ({data, onAdd, openModal, changeNameAndSum}) => {
     )
 }
 
-export default CategorieCardArea;
+export default CategorieTab;
