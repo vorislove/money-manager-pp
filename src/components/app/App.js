@@ -27,8 +27,10 @@ class App extends Component {
         name: 'Новая категория',
         img: 'bi bi-basket2-fill',
         sum: 0,
-        id: this.maxId++
+        id: Date.now()
       }
+
+      this.maxId++;
 
       this.setState(({data}) => {
         const newArr = [...data, newItem];
