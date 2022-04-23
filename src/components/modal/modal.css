@@ -50,15 +50,20 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-content: space-between;
+    justify-content: space-between;
 }
 
 .closed {
     color: rgb(2, 2, 2);
     height: 20px;
     max-width: 50px;
-    margin-top: 25px;
+    margin-top: 5px;
+    /* margin-left: 30px; */
     font-weight: normal;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    font-size: 30px;
+    align-items: flex-start;
 }
 
 .closed:hover {
@@ -126,6 +131,11 @@ input:focus {
     line-height: 35px;
     margin-left: 35px;
     margin-bottom: 20px;
+}
+
+.rubModal {
+    font-weight: normal;
+    font-size: 21px;
 }
 
 .maneyCounterInput {

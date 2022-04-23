@@ -1,12 +1,13 @@
 import './navbar.css';
 
-const NavBarBtn = ({name, icon}) =>  {
+const NavBarBtn = ({name, icon, onToggleTab, tabIndex}) =>  {
  
     return(
         <div
-            className='navbar_btn'>
-            <i className={`icon ${icon}`}></i>
-            <span>{name}</span>
+            className='navbar_btn'
+            onClick={onToggleTab} >
+            <i className={`icon ${icon}${tabIndex ? '-fill' : ''}`}></i>
+            <span className={tabIndex ? 'active' : ''}>{name}</span>
         </div>
     )
 }

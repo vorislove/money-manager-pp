@@ -11,12 +11,13 @@
     padding: 0;
     margin: 0 auto;
     position: fixed;
-    bottom: 5px;
+    bottom: 15px;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.72);
     backdrop-filter: saturate(180%) blur(20px);
     border-radius: 20px;
+    box-shadow: 2px 4px 12px rgb(0, 0, 0, 0.08);
 }
 
 .active {
@@ -36,6 +37,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.navbar_btn:hover {
+    cursor: pointer;
 }
 
 .icon {
@@ -74,12 +79,10 @@
         flex-direction: column;
         width: 200px;
         overflow: hidden;
-        /* padding: 0 30px; */
         margin: inherit;
         top: 160px;
         left: 30px;
         right: inherit;
-        box-shadow: 2px 4px 12px rgb(0, 0, 0, 0.08);
     }
 
     .navbar_btn {

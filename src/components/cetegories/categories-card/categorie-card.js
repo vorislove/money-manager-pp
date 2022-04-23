@@ -1,4 +1,4 @@
-import { Component } from "react/cjs/react.production.min";
+import { Component } from "react";
 
 import Modal from "../../modal/modal";
 
@@ -44,7 +44,10 @@ class CategorieCard extends Component {
                     <span className="categorie_card_name">{name}</span>
                     <div className="white_info">
                         <i className={img}/>
-                        <span className="categorie_card_sum">{sum}</span>
+                        <span className="categorie_card_sum">
+                            {sum} 
+                            <span className="rub"> &#8381;</span>
+                        </span>
                     </div>
                 </div>
                 <div className={classNameModal}

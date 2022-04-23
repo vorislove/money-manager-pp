@@ -74,11 +74,12 @@ class Modal extends Component  {
                     <span 
                         className='closed'
                         onClick={onClosed}>
-                        Закрыть
+                        &times;
                     </span>
                 </div>
                 <span className="maneyCounterLog">
-                    {sum}
+                    {sum} 
+                    <span className='rubModal'> &#8381;</span>
                 </span>
                 <div>
                     <input 
@@ -88,7 +89,7 @@ class Modal extends Component  {
                     onChange={this.onChangeSumValue}
                     className="maneyCounterInput"   
                     placeholder="Укажите сумму"/>
-                    <i class="iconTrash bi bi-trash3-fill"
+                    <i className="iconTrash bi bi-trash3-fill"
                         onClick={deleteCard}></i>
                 </div>
                 

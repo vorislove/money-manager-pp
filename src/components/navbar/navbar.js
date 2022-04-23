@@ -1,17 +1,24 @@
 import './navbar.css';
 import NavBarBtn from './nav-bar-btn';
 
-const NavBar = () => {
+const NavBar = ({onToggleTab, tabIndex}) => {
+    const name = ['Категории', 'Операции', 'Бюджет', 'Профиль'];
+    const icon = ['bi bi-bookmark', 'bi bi-clock', 'bi bi-piggy-bank', 'bi bi-person'];
+
+    const btnElements = name.map((item, i) => {
+       return( 
+            <NavBarBtn
+                key={i}
+                name={item}
+                icon={icon[i]}
+                onToggleTab={() => onToggleTab(i, item)}
+                tabIndex={tabIndex === i ? true : false} />
+        )
+    })
+
     return (
         <div className="navBar">
-            <NavBarBtn name="Категори"
-                icon="bi bi-bookmark"/>
-            <NavBarBtn name="Операции"
-                icon="bi bi-list-ul" />
-            <NavBarBtn name="Бюджет"
-                icon="bi bi-piggy-bank" />
-            <NavBarBtn name="Профиль"
-                icon="bi bi-person" />
+            {btnElements}
         </div>
     );
 }

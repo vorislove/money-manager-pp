@@ -1,32 +1,13 @@
-.tab {
-    position: absolute;
-    height: 35px;
-    width: 100%;
-}
-
-.categorie_tab_area {
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-    /* justify-content: space-around; */
-    flex-wrap: wrap;
-    overflow: auto;
-    margin: 145px auto 0 auto;
-    padding-bottom: 100px;
-    padding-left: 30px;
-    padding-top: 15px;
-}
-
 .categorie_card {
     display: flex;
-    flex-grow: 2;
-    box-shadow: 2px 4px 12px rgb(0, 0, 0, 0.08);
+    flex-grow: 1;
+    box-shadow: -6px -6px 10px #FFFFFF,  4px 4px 15px 4px rgba(77, 74, 238, 0.226);
     margin: 0 30px 30px 0;
     border-radius: 25px;
     transition: all .3s cubic-bezier(0,0,.5,1);
     width: 150px;
     height: 96px;
-    background: linear-gradient(301.13deg, #9EF956 -1.1%, #F5FF84 105.29%);
+    background: linear-gradient(301.13deg, #706efd -1.1%, #7CE7FF 105.29%);
     max-width: 400px;
 }
 
@@ -35,18 +16,8 @@
         margin: 0 15px 15px 0;
         min-width: 150px;
     }
-
-    .categorie_tab_area {
-    padding-left: 15px;
-    margin: 80px auto 0 auto;
-    }
 }
 
-@media (min-width:767px) {
-    .categorie_tab_area {
-        margin-left: 230px;
-    }
-}
 
 .categorie_card_info {
     display: flex;
@@ -56,7 +27,7 @@
 }
 
 .categorie_card:hover {
-    box-shadow: 2px 5px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: -10px -10px 15px #FFFFFF, 8px 8px 16px rgba(0, 0, 0, 0.13);
     /* transform: scale(1.03); */
     transition: all .3s cubic-bezier(0,0,.5,1);
 }
@@ -75,6 +46,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.rub {
+    font-weight: normal;
+    font-size: 13px;
 }
 
 .categorie_card_name {

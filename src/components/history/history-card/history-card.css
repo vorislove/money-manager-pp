@@ -1,0 +1,71 @@
+.card_day {
+    background-color: #FFFFFF;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px 30px 0;
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+@media (max-width:392px) {
+    .card_day {
+        margin: 0 15px 15px 0;
+    }
+}
+
+.date {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+
+.week_day {
+    font-weight: normal;
+    color: #9E9E9E;
+    margin-bottom: 15px;
+}
+
+.card_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: normal;
+    align-items: center;
+    margin-right: 30px;
+    margin: 0 15px 10px 13px;
+}
+
+.card_content:first-child {
+    margin-top: 15px;
+}
+
+.card_content:last-child {
+    margin-bottom: 15px;
+    border-bottom:  none;
+}
+
+.icon_name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconCircle {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background: #706efd;
+    color: white;
+    align-items: center;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 10px;
+}
+
+.category_log_sum {
+    color: #E44B4B;
+    font-weight: 500;
+}

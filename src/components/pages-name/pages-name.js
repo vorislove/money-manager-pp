@@ -7,14 +7,14 @@ class PageName extends Component {
     }
 
     render() {
-        const {name, onAdd} = this.props;
+        const {namePage, onAdd} = this.props;
+        const btnAdd = namePage == 'Категории' ? <button className="new_categorie" onClick={onAdd}>+</button> : null;
 
         return(
             <div className="page_name">
                 <div className="categorie_name">
-                    {name}
-                    <button className="new_categorie" 
-                        onClick={onAdd}>+</button>
+                    {namePage}
+                    {btnAdd}
                 </div>
             </div>
         );

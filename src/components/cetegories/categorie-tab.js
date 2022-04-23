@@ -1,10 +1,9 @@
 import CategorieCard from './categories-card/categorie-card';
-import PageName from '../pages-name/pages-name';
 
-import './categories-card/categorie-card.css';
+import '../app/App.css';
 
 
-const CategorieTab = ({data, onAdd, openModal, changeNameAndSum, deleteCard}) => {
+const CategorieTab = ({data, openModal, changeNameAndSum, deleteCard, tabIndex}) => {
 
     const elements = data.map(item => {
         const {id, name, sum, ...itemProps} = item;
@@ -21,10 +20,8 @@ const CategorieTab = ({data, onAdd, openModal, changeNameAndSum, deleteCard}) =>
     })
 
     return (
-        <div className='tab'>
-            <PageName name='Категории'
-            onAdd={() => onAdd()} />
-            <div className="categorie_tab_area">
+        <div className={tabIndex === 0 ? 'tab active' : 'tab'}>
+            <div className="tab_content">
                 {elements}
             </div>
             
