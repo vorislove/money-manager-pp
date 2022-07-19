@@ -1,0 +1,17 @@
+.sign-in {
+	height: 40px;
+	border-radius: var(--base-radius);
+	border: none;
+	padding: 0px 12px;
+	margin: 0;
+	font-weight: bold;
+	width: 100%;
+	transition: all 0.2s cubic-bezier(0, 0, 0.5, 0.15);
+}
+
+.sign-in:hover {
+	box-shadow: var(--base-shadow);
+	text-decoration: none;
+	transform: scale(1.03);
+	transition: all 0.2s cubic-bezier(0, 0, 0.5, 0.15);
+}

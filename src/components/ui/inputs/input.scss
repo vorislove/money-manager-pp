@@ -1,0 +1,14 @@
+.input {
+	height: 40px;
+	border: none;
+	border-radius: var(--base-radius);
+	padding: 7px 10px;
+	box-shadow: var(--base-shadow);
+	margin-top: 10px;
+	transition: all 0.2s cubic-bezier(0, 0, 0.5, 0.15);
+}
+
+.input:focus {
+	box-shadow: var(--base-shadow-primary);
+	transition: all 0.2s cubic-bezier(0, 0, 0.5, 0.15);
+}

@@ -1,106 +1,90 @@
-import { Component } from 'react';
-import './modal.css';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteCard, closeModal } from '../../store/actions';
 
-class Modal extends Component  {
-    constructor(props) {
-        super(props);
-        this.state = {
-            nameInput: '',
-            id: '',
-            sum: '',
-            sumInput: ''
-        }
-    }
+import './modal.scss';
 
-    componentDidMount() {
-        this.setState({
-            nameInput: this.props.name,
-            id: this.props.idCard,
-            sum: this.props.sum
-        })
-    }
+const Modal = ({ id }) => {
+	// @ts-ignore
+	const selectCard = useSelector((state) => state.modal.selectCard);
+	const dispatch = useDispatch();
+	// @ts-ignore
+	const visible = useSelector((state) => state.modal.isOpen);
 
-    onValueChange = (e) => {
-        this.setState({
-            nameInput: e.target.value
-        })
-    }
-    
-    onChangeName = () => {
-        this.props.changeNameAndSum(this.state.id, this.state.nameInput, 'name');
-    }
+	const onClosed = (e) => {
+		if (e.target.classList.contains('open') || e.target.classList.contains('closed')) {
+			dispatch(closeModal());
+			console.log('Закрываю');
+		}
+	};
 
-    onChangeSumValue = (e) => {
-        this.setState({
-            sumInput: e.target.value
-        })
-    }
+	const onDelete = (id) => {
+		dispatch(deleteCard(id));
+		dispatch(closeModal());
+	};
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        if (this.state.sumInput == '' || this.state.sumInput == 0) {
-            alert('Введите значение')
-        } else {
-            const sumDone = parseInt(this.state.sum, 10) + parseInt(this.state.sumInput, 10);
-            this.props.changeNameAndSum(this.state.id, sumDone, 'sum');
-            this.setState({
-                sumInput: ''
-            })
-            
-        }
-        
-    }
+	// const onValueChange = (e) => {
+	// 	setState({ ...state, nameInput: e.target.value });
+	// };
 
-    render() {
-        const {visible, sum, deleteCard, onClosed} = this.props;
-        const {nameInput, sumInput} = this.state;
-        
-        let className = `modalContent ${visible ? 'openContent' : ''}`;
-        
+	// onSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	if (this.state.sumInput == '' || this.state.sumInput == 0) {
+	// 		alert('Введите значение');
+	// 	} else {
+	// 		const sumDone = parseInt(this.state.sum, 10) + parseInt(this.state.sumInput, 10);
+	// 		this.props.changeNameAndSum(this.state.id, sumDone, 'sum');
+	// 		this.setState({
+	// 			sumInput: ''
+	// 		});
+	// 	}
+	// };
 
-        return(
-            <form action="#"  
-                className={className}
-                onSubmit={this.onSubmit} >
-                <div className="row">
-                    <input 
-                        type="text"
-                        name="nameCard"     
-                        placeholder="Новая категория" 
-                        className="inputNewCtg"
-                        value={nameInput}
-                        onChange={this.onValueChange}
-                        onBlur={this.onChangeName} />
-                    <span 
-                        className='closed'
-                        onClick={onClosed}>
-                        &times;
-                    </span>
-                </div>
-                <span className="maneyCounterLog">
-                    {sum} 
-                    <span className='rubModal'> &#8381;</span>
-                </span>
-                <div>
-                    <input 
-                    type="number" 
-                    name="MoneyCount" 
-                    value={sumInput}  
-                    onChange={this.onChangeSumValue}
-                    className="maneyCounterInput"   
-                    placeholder="Укажите сумму"/>
-                    <i className="iconTrash bi bi-trash3-fill"
-                        onClick={deleteCard}></i>
-                </div>
-                
-                <button 
-                    className="plusSum">
-                    Добавить
-                </button>
-            </form>
-            
-        );
-    }
-}
+	// const { nameInput, sumInput } = this.state;
+
+	let classNameModal = `modal ${visible ? 'open' : 'close'}`;
+
+	return (
+		<div className={classNameModal} onClick={(e) => onClosed(e)}>
+			<form
+				action="#"
+				className="modalContent openContent"
+				// onSubmit={onSubmit}
+			>
+				<div className="row">
+					<input
+						type="text"
+						name="nameCard"
+						placeholder="Новая категория"
+						className="inputNewCtg"
+						value={selectCard.name}
+						// onChange={onValueChange}
+						// onBlur={onChangeName}
+					/>
+					<span className="closed" onClick={onClosed}>
+						&times;
+					</span>
+				</div>
+				<span className="maneyCounterLog">
+					{selectCard.sum}
+					<span className="rubModal"> &#8381;</span>
+				</span>
+				<div>
+					<input
+						type="number"
+						name="MoneyCount"
+						// value={sumInput}
+						// onChange={this.onChangeSumValue}
+						className="maneyCounterInput"
+						placeholder="Укажите сумму"
+					/>
+					<i className="iconTrash bi bi-trash3-fill" onClick={(e) => onDelete(id)}></i>
+				</div>
+
+				<button className="plusSum">Добавить</button>
+			</form>
+		</div>
+	);
+};
 
 export default Modal;

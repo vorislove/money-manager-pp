@@ -1,0 +1,15 @@
+.toast {
+	border-radius: var(--base-radius);
+	border: none !important;
+	background: var(--base-red) !important;
+}
+
+.error {
+	border: none !important;
+	box-shadow: var(--base-shadow-error) !important;
+}
+
+.success {
+	border: none !important;
+	box-shadow: var(--base-shadow-succec) !important;
+}
